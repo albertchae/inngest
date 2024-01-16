@@ -123,7 +123,7 @@ export function TimeInput({ onChange, placeholder, required }: Props) {
     [state.inputString]
   );
 
-  function handleInputFocus(event: React.FocusEvent<HTMLInputElement>) {
+  function handleInputFocus() {
     dispatch({ type: 'focused' });
   }
 
