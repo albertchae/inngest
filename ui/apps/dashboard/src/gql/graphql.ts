@@ -198,10 +198,12 @@ export type Deploy = {
   commitRef: Maybe<Scalars['String']>;
   createdAt: Scalars['Time'];
   deployedFunctions: Array<Workflow>;
+  dupeCount: Scalars['Int'];
   error: Maybe<Scalars['String']>;
   framework: Maybe<Scalars['String']>;
   functionCount: Maybe<Scalars['Int']>;
   id: Scalars['UUID'];
+  lastSyncedAt: Scalars['Time'];
   metadata: Scalars['Map'];
   platform: Maybe<Scalars['String']>;
   prevFunctionCount: Maybe<Scalars['Int']>;
