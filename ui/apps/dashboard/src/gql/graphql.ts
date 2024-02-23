@@ -516,12 +516,12 @@ export type Mutation = {
   disableEnvironmentAutoArchive: Workspace;
   editWorkflow: Maybe<WorkflowVersionResponse>;
   enableEnvironmentAutoArchive: Workspace;
+  invokeFunction: Maybe<Scalars['Boolean']>;
   removeVercelApp: Maybe<RemoveVercelAppResponse>;
   resyncApp: SyncResponse;
   retryWorkflowRun: Maybe<StartWorkflowResponse>;
   setUpAccount: Maybe<SetUpAccountPayload>;
   syncNewApp: SyncResponse;
-  triggerFunction: Maybe<Scalars['Boolean']>;
   unarchiveEnvironment: Workspace;
   updateAccount: Account;
   updateIngestKey: IngestKey;
@@ -597,6 +597,13 @@ export type MutationEnableEnvironmentAutoArchiveArgs = {
 };
 
 
+export type MutationInvokeFunctionArgs = {
+  data: InputMaybe<Scalars['Map']>;
+  envID: Scalars['UUID'];
+  functionSlug: Scalars['String'];
+};
+
+
 export type MutationRemoveVercelAppArgs = {
   input: RemoveVercelAppInput;
 };
@@ -618,11 +625,6 @@ export type MutationRetryWorkflowRunArgs = {
 export type MutationSyncNewAppArgs = {
   appURL: Scalars['String'];
   envID: Scalars['UUID'];
-};
-
-
-export type MutationTriggerFunctionArgs = {
-  input: TriggerFunctionInput;
 };
 
 
@@ -1033,12 +1035,6 @@ export type TimeSeriesPoint = {
   value: Maybe<Scalars['Float']>;
 };
 
-export type TriggerFunctionInput = {
-  data?: InputMaybe<Scalars['Map']>;
-  envID: Scalars['UUID'];
-  functionSlug: Scalars['String'];
-};
-
 export type UpdateAccount = {
   billingEmail?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
@@ -1125,7 +1121,6 @@ export type Workflow = {
    */
   replays: Array<Replay>;
   run: FunctionRun;
-  runMetrics: Usage;
   runs: Maybe<RunListConnection>;
   runsV2: Maybe<RunListConnection>;
   slug: Scalars['String'];
@@ -1141,12 +1136,6 @@ export type WorkflowMetricsArgs = {
 
 export type WorkflowRunArgs = {
   id: Scalars['ULID'];
-};
-
-
-export type WorkflowRunMetricsArgs = {
-  opts: InputMaybe<UsageInput>;
-  status: InputMaybe<Scalars['String']>;
 };
 
 
